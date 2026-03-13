@@ -1,0 +1,23 @@
+version: 0.1.0
+id: validator_contract
+input:
+  required:
+    - manifest
+  properties:
+    manifest:
+      type: object
+    references:
+      type: object
+      description: Optional references such as spec snapshots or reference images.
+    rules:
+      type: array
+      items: { type: string }
+      description: Specific evaluation rules or VQA prompts for the multi-modal LLM to check.
+output:
+  required:
+    - ok
+    - report
+  properties:
+    ok: { type: boolean }
+    score: { type: number }
+    report: { type: object }

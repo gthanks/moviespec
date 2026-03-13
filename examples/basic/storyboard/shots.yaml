@@ -1,0 +1,19 @@
+shots:
+  - id: shot_001
+    characters: [lixunhuan]
+    scene: "雨夜小镇街口"
+    action: "主角停步回望，雨水打湿衣袖"
+    composition: "中景，轻微推近"
+    duration_s: 4
+    media:
+      fps: 24
+    prompt:
+      negative: "low quality, blurry"
+  - id: shot_002
+    characters: [lixunhuan]
+    scene: "客栈昏黄灯光"
+    action: "主角推门而入，灯光在脸上形成明暗对比"
+    composition: "近景，侧逆光"
+    duration_s: 5
+    prompt:
+      negative: "low quality, blurry"

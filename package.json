@@ -1,0 +1,29 @@
+{
+  "name": "@gthanks/moviespec",
+  "version": "0.1.3",
+  "description": "Specification-driven consistency framework for AI image and video generation",
+  "author": "gthanks",
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
+  "files": [
+    "bin",
+    "schema",
+    "templates"
+  ],
+  "type": "module",
+  "bin": {
+    "moviespec": "./bin/moviespec.js"
+  },
+  "engines": {
+    "node": ">=20.19.0"
+  },
+  "dependencies": {
+    "@inquirer/prompts": "^8.3.0",
+    "chalk": "^5.5.0",
+    "commander": "^14.0.0",
+    "fast-glob": "^3.3.3",
+    "yaml": "^2.8.2"
+  }
+}

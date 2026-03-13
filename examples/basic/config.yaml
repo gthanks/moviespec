@@ -1,0 +1,13 @@
+moviespec_version: 0.1.0
+documents:
+  language: zh-CN
+  language_policy: required
+media:
+  resolution: 1920x1080
+  aspect_ratio: 16:9
+  fps: 24
+lora:
+  characters: {}
+  styles: {}
+backend:
+  id: stub

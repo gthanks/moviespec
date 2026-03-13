@@ -1,0 +1,9 @@
+project: "武侠短剧"
+logline: "一位浪子侠客在雨夜小镇中做出关键抉择。"
+style_keywords:
+  - 电影感
+  - 暗调
+  - 雨夜
+characters:
+  - name: "lixunhuan"
+    description: "白衣侠客，清瘦，眼神忧郁。"

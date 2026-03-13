@@ -1,0 +1,180 @@
+version: 0.1.0
+project:
+  config: config.yaml
+  specsDir: specs
+  storyboardDir: storyboard
+  promptsDir: prompts
+  outputDir: output
+  manifestsDir: manifests
+  shotsDir: shots
+  aestheticsDir: templates/aesthetics
+  documentLanguage: zh-CN
+  documentLanguagePolicy: required
+types:
+  visual_decode:
+    description: 视觉解译
+    step: 1
+    defaultPath: specs/01_visual_decode
+    template: templates/visual_decode.md
+    dependsOn: []
+  script:
+    description: 剧本
+    step: 2
+    defaultPath: specs/02_script
+    template: templates/script.md
+    dependsOn:
+      - visual_decode
+  world_bible:
+    description: 世界观
+    step: 3
+    defaultPath: specs/03_world_bible
+    template: templates/world_bible.md
+    dependsOn: []
+  characters:
+    description: 人物设定
+    step: 4
+    defaultPath: specs/04_characters
+    template: templates/characters.md
+    dependsOn: []
+  visual_style:
+    description: 视觉风格
+    step: 5
+    defaultPath: specs/05_visual_style
+    template: templates/visual_style.md
+    dependsOn: []
+  look_book:
+    description: 视觉风格圣经
+    step: 6
+    defaultPath: specs/06_look_book
+    template: templates/look_book.md
+    dependsOn:
+      - visual_style
+  cinematography:
+    description: 镜头语言
+    step: 7
+    defaultPath: specs/07_cinematography
+    template: templates/cinematography.md
+    dependsOn: []
+  shot_list:
+    description: 镜头清单
+    step: 8
+    defaultPath: specs/08_shot_list
+    template: templates/shot_list.md
+    dependsOn:
+      - script
+      - cinematography
+  shot_template:
+    description: 分镜模板
+    step: 9
+    defaultPath: specs/09_shot_template
+    template: templates/shot_template.md
+    dependsOn:
+      - characters
+      - visual_style
+      - cinematography
+      - shot_list
+  prompt_bible:
+    description: Prompt 圣经
+    step: 10
+    defaultPath: specs/10_prompt_bible
+    template: templates/prompt_bible.md
+    dependsOn:
+      - characters
+      - look_book
+      - visual_style
+  prompt_guide:
+    description: AI Prompt 规范
+    step: 11
+    defaultPath: specs/11_prompt_guide
+    template: templates/prompt_guide.md
+    dependsOn:
+      - world_bible
+      - visual_style
+      - prompt_bible
+  consistency_system:
+    description: 视觉一致性系统
+    step: 12
+    defaultPath: specs/12_consistency_system
+    template: templates/consistency_system.md
+    dependsOn:
+      - characters
+      - look_book
+      - prompt_bible
+  hero_shot_pilot:
+    description: 关键镜头测试
+    step: 13
+    defaultPath: specs/13_hero_shot_pilot
+    template: templates/hero_shot_pilot.md
+    dependsOn:
+      - prompt_bible
+      - consistency_system
+  keyframe_sheet:
+    description: 关键帧制作单
+    step: 14
+    defaultPath: specs/14_keyframe_sheet
+    template: templates/keyframe_sheet.md
+    dependsOn:
+      - shot_list
+      - look_book
+      - prompt_bible
+      - consistency_system
+  video_generation_sheet:
+    description: 视频生成单
+    step: 15
+    defaultPath: specs/15_video_generation_sheet
+    template: templates/video_generation_sheet.md
+    dependsOn:
+      - keyframe_sheet
+      - prompt_bible
+      - consistency_system
+  sound_design:
+    description: 声音设计
+    step: 16
+    defaultPath: specs/16_sound_design
+    template: templates/sound_design.md
+    dependsOn:
+      - script
+      - shot_list
+  edit_plan:
+    description: 剪辑计划
+    step: 17
+    defaultPath: specs/17_edit_plan
+    template: templates/edit_plan.md
+    dependsOn:
+      - shot_list
+      - sound_design
+  grading_guide:
+    description: 调色指南
+    step: 18
+    defaultPath: specs/18_grading_guide
+    template: templates/grading_guide.md
+    dependsOn:
+      - look_book
+      - edit_plan
+  delivery_manifest:
+    description: 交付清单
+    step: 19
+    defaultPath: specs/19_delivery_manifest
+    template: templates/delivery_manifest.md
+    dependsOn:
+      - video_generation_sheet
+      - sound_design
+      - edit_plan
+      - grading_guide
+compile:
+  prompt:
+    priority:
+      - shot
+      - keyframe_sheet
+      - characters
+      - cinematography
+      - look_book
+      - visual_style
+      - consistency_system
+      - world_bible
+      - visual_decode
+      - script
+      - prompt_bible
+      - prompt_guide
+    maxTokens:
+      stub: null

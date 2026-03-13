@@ -1,0 +1,37 @@
+version: 0.1.0
+id: storyboard
+format: yaml_or_json
+shots:
+  required:
+    - id
+  properties:
+    id: { type: string }
+    characters:
+      type: array
+      items: { type: string }
+    scene: { type: string }
+    scene_context:
+      type: object
+      properties:
+        camera: { type: string, description: "摄像机运动，如 Dolly, Pan, Tilt" }
+        lighting: { type: string, description: "环境光效" }
+    assets:
+      type: object
+      properties:
+        seed: { type: integer, description: "一致性种子" }
+        face_id: { type: string, description: "角色面部特征 ID" }
+        reference_image: { type: string, description: "参考图 URL 或路径" }
+    action: { type: string }
+    composition: { type: string }
+    duration_s: { type: number }
+    media:
+      type: object
+      properties:
+        resolution: { type: string }
+        aspect_ratio: { type: string }
+        fps: { type: number }
+    prompt:
+      type: object
+      properties:
+        positive: { type: string }
+        negative: { type: string }

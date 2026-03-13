@@ -1,0 +1,55 @@
+version: 0.1.0
+id: manifest
+format: json
+required:
+  - shot_id
+  - created_at
+  - backend
+  - tool
+  - prompt
+  - media
+  - deps
+properties:
+  shot_id:
+    type: string
+  created_at:
+    type: string
+  backend:
+    type: object
+    required: [id]
+    properties:
+      id: { type: string }
+      params: { type: object }
+  tool:
+    type: object
+    required: [id, version]
+    properties:
+      id: { type: string }
+      version: { type: string }
+  prompt:
+    type: object
+    required: [positive, negative]
+    properties:
+      positive: { type: string }
+      negative: { type: string }
+  media:
+    type: object
+    properties:
+      resolution: { type: string }
+      aspect_ratio: { type: string }
+      fps: { type: number }
+  deps:
+    type: object
+  lora:
+    type: object
+    properties:
+      characters: { type: object }
+      styles: { type: object }
+  sources:
+    type: object
+    properties:
+      compiled_prompt: { type: string }
+      storyboard: { type: string }
+      specs: { type: object }
+  outputs:
+    type: object

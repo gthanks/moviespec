@@ -1,0 +1,25 @@
+version: 0.1.0
+id: requirements
+format: yaml
+required:
+  - project
+  - logline
+properties:
+  project: { type: string }
+  logline: { type: string }
+  style_keywords:
+    type: array
+    items: { type: string }
+  characters:
+    type: array
+    items:
+      type: object
+      required: [name]
+      properties:
+        name: { type: string }
+        description: { type: string }
+  constraints:
+    type: object
+    properties:
+      language: { type: string }
+      target: { type: string }
