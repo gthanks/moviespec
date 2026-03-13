@@ -1,6 +1,6 @@
 {
   "name": "@gthanks/moviespec",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "Specification-driven consistency framework for AI image and video generation",
   "author": "gthanks",
   "license": "MIT",
